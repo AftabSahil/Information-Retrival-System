@@ -40,33 +40,37 @@ This is a conversational AI system that allows users to upload one or more PDF d
 
 ### 1. Clone the repository
 
-``bash
+```bash
 git clone https://github.com/AftabSahil/Information-Retrival-System.git
 cd Information-Retrival-System
-
+```
 
 2. Create and activate a virtual environment
 
-''bash
+```bash
 python -m venv venv
 source venv/bin/activate      # for Linux/macOS
 venv\Scripts\activate         # for Windows
-
+```
 
 3. Install dependencies
+```
 pip install -r requirements.txt
-
+```
 
 4. Configure your environment
+```text
 Create a .env file in the root directory and add your Google API key:
 GOOGLE_API_KEY=your_google_api_key_here
-
+```
 
 5. Run the application
+```bash
 streamlit run app.py
-
+```
 
 🔄 System Architecture
+```
 graph LR
 A[User Uploads PDFs] --> B[Extract Text using PyPDF2]
 B --> C[Chunk Text using LangChain Splitter]
@@ -75,7 +79,7 @@ D --> E[Store Embeddings in FAISS]
 F[User Asks a Question] --> G[Search Similar Chunks from FAISS]
 G --> H[Generate Answer using Google Gemini LLM]
 H --> I[Show Answer in Streamlit Chat]
-
+```
 
 🧪 Example Use Case
 Upload a set of research papers, legal documents, or policy files
