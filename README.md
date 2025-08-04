@@ -99,6 +99,7 @@ Get a context-aware, conversational response from the LLM, referencing document 
 ├── setup.py                      # Optional for packaging
 ├── genAI project.drawio          # Architecture diagram (editable)
 └── README.md                     # You're here :)
+```
 ---
 ### 📌 Future Enhancements
 ```
