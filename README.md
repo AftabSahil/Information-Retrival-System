@@ -90,6 +90,7 @@ Get a context-aware, conversational response from the LLM, referencing document 
 ---
 
 ### 🧩 Folder Structure
+```bash
 ├── app.py                         # Main Streamlit app
 ├── src/
 │   └── helper.py                 # PDF processing, embeddings, chain setup
