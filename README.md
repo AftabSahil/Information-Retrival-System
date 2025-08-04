@@ -40,12 +40,14 @@ This is a conversational AI system that allows users to upload one or more PDF d
 
 ### 1. Clone the repository
 
-```bash
+``bash
 git clone https://github.com/AftabSahil/Information-Retrival-System.git
 cd Information-Retrival-System
 
 
 2. Create and activate a virtual environment
+
+''bash
 python -m venv venv
 source venv/bin/activate      # for Linux/macOS
 venv\Scripts\activate         # for Windows
