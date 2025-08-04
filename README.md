@@ -71,14 +71,14 @@ streamlit run app.py
 ---
 ### 🔄 System Architecture
 ```
-|graph LR
-|A[User Uploads PDFs] --> B[Extract Text using PyPDF2]           |
-|B --> C[Chunk Text using LangChain Splitter]                    |
-|C --> D[Embed Chunks using Google Generative AI Embeddings]     |
-|D --> E[Store Embeddings in FAISS]                              |
-|F[User Asks a Question] --> G[Search Similar Chunks from FAISS] |
-|G --> H[Generate Answer using Google Gemini LLM]                |
-|H --> I[Show Answer in Streamlit Chat]                          |
+graph LR
+A[User Uploads PDFs] --> B[Extract Text using PyPDF2]           
+B --> C[Chunk Text using LangChain Splitter]                    
+C --> D[Embed Chunks using Google Generative AI Embeddings]     
+D --> E[Store Embeddings in FAISS]                              
+F[User Asks a Question] --> G[Search Similar Chunks from FAISS] 
+G --> H[Generate Answer using Google Gemini LLM]                
+H --> I[Show Answer in Streamlit Chat]                          
 ```
 ---
 ### 🧪 Example Use Case
