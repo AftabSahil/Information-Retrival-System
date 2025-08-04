@@ -45,7 +45,7 @@ git clone https://github.com/AftabSahil/Information-Retrival-System.git
 cd Information-Retrival-System
 ```
 ---
-###2. Create and activate a virtual environment
+### 2. Create and activate a virtual environment
 
 ```bash
 python -m venv venv
@@ -53,35 +53,35 @@ source venv/bin/activate      # for Linux/macOS
 venv\Scripts\activate         # for Windows
 ```
 ---
-###3. Install dependencies
+### 3. Install dependencies
 ```
 pip install -r requirements.txt
 ```
 ---
-###4. Configure your environment
+### 4. Configure your environment
 ```text
 Create a .env file in the root directory and add your Google API key:
 GOOGLE_API_KEY=your_google_api_key_here
 ```
 ---
-###5. Run the application
+### 5. Run the application
 ```bash
 streamlit run app.py
 ```
 ---
-###🔄 System Architecture
+### 🔄 System Architecture
 ```
-graph LR
-A[User Uploads PDFs] --> B[Extract Text using PyPDF2]
-B --> C[Chunk Text using LangChain Splitter]
-C --> D[Embed Chunks using Google Generative AI Embeddings]
-D --> E[Store Embeddings in FAISS]
-F[User Asks a Question] --> G[Search Similar Chunks from FAISS]
-G --> H[Generate Answer using Google Gemini LLM]
-H --> I[Show Answer in Streamlit Chat]
+|graph LR
+|A[User Uploads PDFs] --> B[Extract Text using PyPDF2]           |
+|B --> C[Chunk Text using LangChain Splitter]                    |
+|C --> D[Embed Chunks using Google Generative AI Embeddings]     |
+|D --> E[Store Embeddings in FAISS]                              |
+|F[User Asks a Question] --> G[Search Similar Chunks from FAISS] |
+|G --> H[Generate Answer using Google Gemini LLM]                |
+|H --> I[Show Answer in Streamlit Chat]                          |
 ```
 ---
-###🧪 Example Use Case
+### 🧪 Example Use Case
 Upload a set of research papers, legal documents, or policy files
 
 Ask: "What does the document say about climate policy?"
@@ -89,7 +89,7 @@ Ask: "What does the document say about climate policy?"
 Get a context-aware, conversational response from the LLM, referencing document content
 ---
 
-###🧩 Folder Structure
+### 🧩 Folder Structure
 ├── app.py                         # Main Streamlit app
 ├── src/
 │   └── helper.py                 # PDF processing, embeddings, chain setup
@@ -99,7 +99,7 @@ Get a context-aware, conversational response from the LLM, referencing document 
 ├── genAI project.drawio          # Architecture diagram (editable)
 └── README.md                     # You're here :)
 ---
-###📌 Future Enhancements
+### 📌 Future Enhancements
 ```
  Add page-level reference for answers
 
@@ -112,7 +112,7 @@ Get a context-aware, conversational response from the LLM, referencing document 
  Summarize PDFs using Gemini before chat
  ```
 ---
-###💡 Inspiration & Learning
+### 💡 Inspiration & Learning
 ```
 This project gave me hands-on experience with:
 
