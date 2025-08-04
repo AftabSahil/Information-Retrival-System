@@ -86,7 +86,7 @@ Upload a set of research papers, legal documents, or policy files
 
 Ask: "What does the document say about climate policy?"
 
-Get a context-aware, conversational response from the LLM, referencing document content
+_Get a context-aware, conversational response from the LLM, referencing document content_
 ---
 
 ### 🧩 Folder Structure
