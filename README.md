@@ -7,7 +7,7 @@ A privacy-preserving, conversational AI system that allows users to upload multi
 ## 🚀 Features
 
 - 📁 Upload & process multiple PDF documents
-- ✂️ Chunk and embed documents using `all-MiniLM-L6-v2` from HuggingFace
+- ✂️ Chunk and embed documents using "all-MiniLM-L6-v2" from HuggingFace
 - 🔎 Store chunks in a FAISS vector store
 - 🤖 Interact with documents using **Mistral LLM via Ollama**
 - 🧠 Maintains conversation history for multi-turn QA
