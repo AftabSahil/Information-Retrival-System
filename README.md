@@ -1,39 +1,47 @@
-# 📄 Information Retrieval System using Generative AI (Google Gemini + LangChain)
+# 🧠 Information Retrieval System using Local LLM (Ollama + Mistral) and HuggingFace Embeddings
 
-This is a conversational AI system that allows users to upload one or more PDF documents and interact with them using natural language queries. It combines traditional information retrieval with modern generative AI (LLMs), enabling context-aware answers from document content.
+A privacy-preserving, conversational AI system that allows users to upload multiple PDF documents and ask context-aware questions based on their content. It leverages **local LLMs (via Ollama)** and **HuggingFace sentence embeddings**, making it ideal for offline or sensitive environments.
 
 ---
 
 ## 🚀 Features
 
-- 📚 Upload and process multiple PDF documents
-- 🔍 Chunk and embed document text using Google Generative AI Embeddings
-- 📦 Store and retrieve embeddings using FAISS (vector store)
-- 🤖 Generate accurate and conversational answers using Google Gemini (via LangChain)
-- 🧠 Maintains conversation history across questions
-- 🖥️ Interactive UI using Streamlit
+- 📁 Upload & process multiple PDF documents
+- ✂️ Chunk and embed documents using `all-MiniLM-L6-v2` from HuggingFace
+- 🔎 Store chunks in a FAISS vector store
+- 🤖 Interact with documents using **Mistral LLM via Ollama**
+- 🧠 Maintains conversation history for multi-turn QA
+- ⚙️ Fully local & offline-capable — no external API calls
+- 🖥️ Simple UI built using Streamlit
 
 ---
 
-## 📸 Demo Preview
+## 🧱 Tech Stack
 
-
+| Component            | Technology                         |
+|---------------------|-------------------------------------|
+| UI                  | Streamlit                           |
+| LLM                 | Mistral (via Ollama)                |
+| Embeddings          | all-MiniLM-L6-v2 (HuggingFace)      |
+| Vector Database     | FAISS (via LangChain)               |
+| PDF Parsing         | PyPDF2                              |
+| Memory              | ConversationBufferMemory            |
+| Environment Config  | python-dotenv (.env support)        |
 
 ---
 
-## 🧠 Tech Stack
+## 🖼️ Architecture
 
-| Layer          | Technology Used                        |
-|----------------|----------------------------------------|
-| UI             | Streamlit                              |
-| Backend Logic  | Python                                 |
-| LLM            | Google Gemini 1.5 Pro                  |
-| Embeddings     | GoogleGenerativeAIEmbeddings           |
-| Vector DB      | FAISS (via LangChain)                  |
-| PDF Processing | PyPDF2                                 |
-| Chat Memory    | LangChain ConversationBufferMemory     |
-| Environment    | dotenv (.env file for API keys)        |
-
+```mermaid
+graph TD
+    A[User Uploads PDFs] --> B[Extract Text with PyPDF2]
+    B --> C[Split Text into Chunks]
+    C --> D[Embed Chunks using HuggingFace MiniLM]
+    D --> E[Store Chunks in FAISS Vector Store]
+    F[User Enters Question] --> G[Retrieve Relevant Chunks]
+    G --> H[Answer using Ollama LLM (Mistral)]
+    H --> I[Stream Answer via Streamlit UI]
+```
 ---
 
 ## 🛠️ Setup Instructions
@@ -58,75 +66,52 @@ venv\Scripts\activate         # for Windows
 pip install -r requirements.txt
 ```
 ---
-### 4. Configure your environment
-```text
-Create a .env file in the root directory and add your Google API key:
-GOOGLE_API_KEY=your_google_api_key_here
+### 4. Install Ollama (if not installed)
+Visit: https://ollama.com/download
+Then run:
 ```
+ollama run mistral
+This downloads and serves the Mistral model locally via the Ollama CLI.
+```
+
 ---
 ### 5. Run the application
 ```bash
 streamlit run app.py
 ```
 ---
-### 🔄 System Architecture
+### 💻 How It Works
 ```
-graph LR
-A[User Uploads PDFs] --> B[Extract Text using PyPDF2]           
-B --> C[Chunk Text using LangChain Splitter]                    
-C --> D[Embed Chunks using Google Generative AI Embeddings]     
-D --> E[Store Embeddings in FAISS]                              
-F[User Asks a Question] --> G[Search Similar Chunks from FAISS] 
-G --> H[Generate Answer using Google Gemini LLM]                
-H --> I[Show Answer in Streamlit Chat]                          
+Upload multiple PDF documents via the UI
+
+System reads and extracts the full text
+
+Text is chunked for better context resolution
+
+Chunks are converted to vector embeddings and stored in FAISS
+
+You ask questions; system retrieves relevant chunks
+
+Mistral generates answers based on the content context
+
+Responses are displayed in a chat-like format
 ```
 ---
-### 🧪 Example Use Case
-Upload a set of research papers, legal documents, or policy files
+### 🧪 Use Case Examples
+📚 Research assistant for reading academic papers
 
-Ask: "What does the document say about climate policy?"
+🧾 Contract summarizer for legal documents
 
-_Get a context-aware, conversational response from the LLM, referencing document content_
+📊 QA assistant for company reports
+
+📕 Notes reader for students
 ---
-
-### 🧩 Folder Structure
-```bash
-├── app.py                         # Main Streamlit app
+### 📂 Project Structure
+```
+├── app.py                      # Streamlit frontend
 ├── src/
-│   └── helper.py                 # PDF processing, embeddings, chain setup
-├── requirements.txt              # Dependencies
-├── .env                          # API key config (not included in repo)
-├── setup.py                      # Optional for packaging
-├── genAI project.drawio          # Architecture diagram (editable)
-└── README.md                     # You're here :)
+│   └── helper.py              # Core logic (PDF, Embeddings, LLM)
+├── requirements.txt           # Dependencies
+├── .env                       # Environment variables (if needed)
+└── README.md                  # You're here
 ```
----
-### 📌 Future Enhancements
-```
- Add page-level reference for answers
-
- Cache vector store to avoid recomputation
-
- Enable multi-user session support
-
- Integrate file storage (e.g., S3 or local DB)
-
- Summarize PDFs using Gemini before chat
- ```
----
-### 💡 Inspiration & Learning
-```
-This project gave me hands-on experience with:
-
-Embedding-based retrieval systems
-
-Vector databases (FAISS)
-
-Using large language models (LLMs) for RAG (retrieval-augmented generation)
-
-LangChain ecosystem and memory modules
-
-Building fast AI prototypes using Streamlit
-```
----
-
