@@ -32,7 +32,7 @@ A privacy-preserving, conversational AI system that allows users to upload multi
 
 ## 🖼️ Architecture
 
-```mermaid
+```
 graph TD
     A[User Uploads PDFs] --> B[Extract Text with PyPDF2]
     B --> C[Split Text into Chunks]
